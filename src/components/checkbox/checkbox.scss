@@ -1,0 +1,18 @@
+.ant-checkbox-group-item {
+    display: flex;
+  }
+  
+  .ant-checkbox-group{
+    display: block;
+  }
+
+  .ant-checkbox-inner {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .ant-checkbox-inner::after {
+    width: 8px;
+    height: 12px;
+  }
+  

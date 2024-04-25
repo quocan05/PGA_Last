@@ -1,0 +1,23 @@
+
+  .ant-tabs-ink-bar {
+    height: 0;
+    background: transparent !important;
+  }
+  
+  .ant-tabs-card > .ant-tabs-nav .ant-tabs-tab {
+    border-color: transparent;
+    
+  }
+  .ant-tabs-tab{
+    margin: 0 8px 0 0 !important
+  }
+  
+  .ant-tabs-top > .ant-tabs-nav::before {
+    border-color: transparent;
+  }
+  
+  .ant-tabs > .ant-tabs-nav {
+    margin-bottom: 0;
+  }
+
+  

@@ -1,0 +1,55 @@
+@font-face {
+  font-family: 'SofiaPro';
+  src: url('./assets/fonts/SofiaPro.ttf') format('truetype');
+}
+
+:root {
+  background-color: #F8F9FA;
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;
+}
+
+html body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh; /* 100% chiều cao của viewport */
+  
+}
+html *
+{
+   font-family: 'SofiaPro', sans-serif;
+}
+
+
+:where(.css-dev-only-do-not-override-11xg00t).ant-typography{
+  font-family: 'SofiaPro', sans-serif !important;
+
+}
+/* 
+input {
+  border: none !important;
+} */
+
+.ant-typography{
+  text-align: center;
+  font-weight: 500 !important;
+}
+/*tabs*/
+a{ 
+  color: #0091FF;
+}
+
+::-webkit-scrollbar{
+  width: 8px;
+}
+
+::-webkit-scrollbar-track{
+  background: transparent;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb{
+  background: #000
+}

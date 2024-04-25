@@ -1,0 +1,26 @@
+.wrapper-header-layout{
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 12px 30px;
+
+width: 1920px;
+height: 60px;
+
+background: #FFFFFF;
+box-shadow: 0px 3px 15px #ECEEF0;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+}
+
+.wrapper-shadow{
+    box-shadow: 0px 3px 15px 0px #ECEEF0;
+    z-index: 1;
+}

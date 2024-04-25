@@ -1,0 +1,38 @@
+.ant-pagination-item-active {
+    border: none !important;
+    
+}
+
+.ant-divider{
+    margin: 10px 0px 
+}
+
+.ant-table{
+    ::-webkit-scrollbar{
+        width: 8px;
+      }
+      
+      ::-webkit-scrollbar-track{
+        background: transparent;
+        border-radius: 4px;
+      }
+      
+      ::-webkit-scrollbar-thumb{
+        background: #000
+      }
+}
+
+.wrapper-table .ant-table-body::-webkit-scrollbar {
+    width: 8px; /* Độ rộng của thanh cuộn */
+  }
+  
+  .wrapper-table .ant-table-body::-webkit-scrollbar-track {
+    background: orange; /* Màu của khu vực cuộn */
+  }
+  
+  .wrapper-table .ant-table-body::-webkit-scrollbar::-webkit-scrollbar-thumb {
+    background-color: blue; /* Màu của thanh cuộn */
+    border-radius: 20px; /* Độ cong của thanh cuộn */
+    border: 3px solid orange; /* Tạo đệm xung quanh thanh cuộn */
+  }
+  

@@ -1,0 +1,34 @@
+.ant-table-cell {
+    border: 2px solid #fff;
+    border-inline-end: #fff !important;
+  }
+.ant-table-row{
+    border: none;
+}
+
+
+td{
+    border-bottom: 0px solid #fff !important;
+}
+
+.row-employee{
+    background-color: #F8F9FA;
+}
+
+
+
+/* File .scss hoặc .css của bạn */
+.wrapper-table .ant-table::-webkit-scrollbar {
+    width: 8px; /* Độ rộng của thanh cuộn */
+  }
+  
+  .wrapper-table .ant-table::-webkit-scrollbar-track {
+    background: orange; /* Màu của khu vực cuộn */
+  }
+  
+  .wrapper-table .ant-table::-webkit-scrollbar-thumb {
+    background-color: blue; /* Màu của thanh cuộn */
+    border-radius: 20px; /* Độ cong của thanh cuộn */
+    border: 3px solid orange; /* Tạo đệm xung quanh thanh cuộn */
+  }
+  
