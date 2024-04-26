@@ -1,9 +1,9 @@
 import { Card, Form, notification } from "antd";
 import { HeaderSettings } from "../Headers/headers";
-import { FormChangePassword } from "../../components/form/form";
+import { FormChangePassword } from "../../components/form/formChangePassword";
 import { ChangePassword } from "../../services/Auth/Auth";
 import { openNotification } from "../../utils/openNotification";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getLocalStorage } from "../../services/localStorage";
 import { useNavigate } from "react-router";
 

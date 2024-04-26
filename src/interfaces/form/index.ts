@@ -8,9 +8,10 @@ export interface CustomFormProps extends FormProps {
   idEmp?: any;
 }
 
+export interface CustomFormAuthProps extends FormProps {}
 
 export interface CustomFormOthersProps extends FormProps {
-  setError?: (state: boolean) => void;
+  setError?: (state?: boolean) => void;
   isOk?: boolean;
   mode?: string;
   idEmp?: any;

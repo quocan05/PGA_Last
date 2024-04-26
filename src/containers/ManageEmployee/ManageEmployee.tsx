@@ -102,12 +102,6 @@ export const ManageEmployee = () => {
       page: pageNumber.toString(),
     });
     setCurrentPage(pageNumber);
-    // dispatch(
-    //   fetchEmployeesByPageAndSearch({
-    //     search: searchParams.get("search") || "",
-    //     page: pageNumber.toString(),
-    //   })
-    // );
   };
 
   useEffect(() => {

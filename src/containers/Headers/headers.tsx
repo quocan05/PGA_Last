@@ -25,7 +25,6 @@ import {
 import { openNotification } from "../../utils/openNotification";
 import { UploadDocuments } from "../../services/Upload/upload";
 import dayjs from "dayjs";
-import { useDebounce } from "../../hooks/useDebounce";
 
 export const HeaderManage: React.FC<HeaderCustomProps> = ({ currentPage }) => {
   const [searchKeyword, setSearchKeyword] = useState("");
@@ -115,7 +114,9 @@ export const HeaderManageAddNew: React.FC<HeaderAddNewProps> = ({
   const add = canAdd;
   const navigate = useNavigate();
   const [api, context] = notification.useNotification();
+  const [loading, setLoading] = useState(false);
   const handleAddNew = async () => {
+    setLoading(true);
     const dataConvert: IEmployeeData = {
       ...dataAddNew,
       dob: dayjs(dataAddNew.dob).format("YYYY-MM-DD"),
@@ -127,6 +128,7 @@ export const HeaderManageAddNew: React.FC<HeaderAddNewProps> = ({
     try {
       const res = await addNewEmployee(dataConvert);
       if (res) {
+        setLoading(false);
         openNotification(
           api,
           "success",
@@ -182,6 +184,7 @@ export const HeaderManageAddNew: React.FC<HeaderAddNewProps> = ({
         </Typography>
         <Form.Item>
           <Button
+            loading={loading}
             type="primary"
             size="large"
             disabled={!add}
@@ -207,7 +210,9 @@ export const HeaderManageUpdate: React.FC<HeaderUpdateProps> = ({
   const update = canUpdate;
   const navigate = useNavigate();
   const [api, contextHolder] = notification.useNotification();
+  const [loading, setLoading] = useState(false);
   const handleUpdate = async () => {
+    setLoading(true);
     console.log("filelist?>>>>>>>>", files);
     const dataConvert: IEmployeeData = {
       ...dataUpdate,
@@ -217,6 +222,7 @@ export const HeaderManageUpdate: React.FC<HeaderUpdateProps> = ({
       ),
       hidden_on_payroll: dataUpdate.hidden_on_payroll === true ? "1" : "0",
     };
+    console.log("data update>>>>>>>", dataUpdate);
     console.log("modified now: ", isModified);
     const filesObjectOnly: UploadFile[] = files.filter(
       (file) => file instanceof File || file instanceof FormData
@@ -232,6 +238,7 @@ export const HeaderManageUpdate: React.FC<HeaderUpdateProps> = ({
             deleted_ids: deletedIds,
           });
         }
+        setLoading(false);
         openNotification(api, "success", "Change saved", "");
         setTimeout(() => {
           navigate("/employee");
@@ -276,6 +283,7 @@ export const HeaderManageUpdate: React.FC<HeaderUpdateProps> = ({
           Employee Management
         </Typography>
         <Button
+          //loading={loading}
           type="primary"
           size="large"
           htmlType="submit"

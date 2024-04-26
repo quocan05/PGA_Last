@@ -1,12 +1,12 @@
 import { Form, notification, Typography } from "antd";
 import { AuthLayout } from "../../../layouts/Auth/authLayout";
 import "./resetPasswordPage.scss";
-import { FormResetPassword } from "../../../components/form/form";
 import { IResetPasswordParam } from "../../../interfaces/value";
 import { LogouAPI, ResetPasswordAPI } from "../../../services/Auth/Auth";
 import { openNotification } from "../../../utils/openNotification";
 import { deleteLocalStorageItem } from "../../../services/localStorage";
 import { useNavigate } from "react-router";
+import { FormResetPassword } from "../../../components/form/formResetPassword";
 
 export const ResetPasswordPage = () => {
   const [form] = Form.useForm();

@@ -1,21 +1,6 @@
-import {
-  ConfigProvider,
-  Flex,
-  Form,
-  FormProps,
-  Tabs,
-  TabsProps,
-  UploadFile,
-} from "antd";
+import { ConfigProvider, Form, Tabs, TabsProps, UploadFile } from "antd";
 import "./tabs.scss";
-import {
-  FormButtonSubmit,
-  FormContractInformation,
-  FormEmployeeInformation,
-  FormEmploymentDetails,
-  FormOthers,
-  FormSalaryWages,
-} from "../form/form";
+
 import React, { useEffect, useState } from "react";
 import { TagTabs } from "../tag/tag";
 import {
@@ -27,7 +12,12 @@ import { RootState } from "../../redux/store";
 import { useParams } from "react-router";
 import { setModeAdd, setModeEdit } from "../../redux/reducers/modeReducer";
 import { getInfoEmployeeByID } from "../../services/Employee/employee";
-import { convertDataToAdd, convertDataToUpdate } from "../../utils/convertData";
+import { convertDataToUpdate } from "../../utils/convertData";
+import { FormEmployeeInformation } from "../form/formEmployeeInformation";
+import { FormContractInformation } from "../form/formContractInfo";
+import { FormEmploymentDetails } from "../form/formEmploymentDetail";
+import { FormSalaryWages } from "../form/formSalaryWages";
+import { FormOthers } from "../form/formOthers";
 export const TabsEmployee: React.FC = () => {
   const [activeKey, setActiveKey] = useState("1");
   const [isError, setIsError] = useState(false);
@@ -64,9 +54,14 @@ export const TabsEmployee: React.FC = () => {
       key: "1",
       children: (
         <FormEmployeeInformation
-          setError={setIsError}
           form={formInfo}
+          setError={setIsError}
           mode={mode}
+          onValuesChange={(values, changeValues) => {
+            //console.log("value: ", values, ">>>>> change", changeValues);
+            //formInfo.setFieldsValue(changeValues);
+            // console.log(" form values:>>> ", formInfo.getFieldsValue());
+          }}
         />
       ),
       forceRender: true,
@@ -134,8 +129,8 @@ export const TabsEmployee: React.FC = () => {
       key: "5",
       children: (
         <FormOthers
-          idEmp={mode === "add" ? idAddNew : id}
           form={form}
+          idEmp={mode === "add" ? idAddNew : id}
           setFiles={setFiles}
           setIsModified={setIsModified}
           setDeletedIds={setDeletedIds}
@@ -164,7 +159,7 @@ export const TabsEmployee: React.FC = () => {
     formInfo
       .validateFields()
       .then(() => {
-        // setCanAdd(true);
+        setCanAdd(true);
         setIsError(false);
         setCanUpdate(false);
       })
@@ -234,7 +229,7 @@ export const TabsEmployee: React.FC = () => {
       >
         <Tabs
           animated={false}
-          // defaultActiveKey={activeKey}
+          defaultActiveKey={activeKey}
           onChange={setActiveKey}
           size={"large"}
           onTabClick={() => handleClickTab()}

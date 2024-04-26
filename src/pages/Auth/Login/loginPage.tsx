@@ -1,5 +1,3 @@
-import { Header } from "antd/es/layout/layout";
-import { FormLogin } from "../../../components/form/form";
 import "./loginPage.scss";
 import { Form, notification, Typography } from "antd";
 import { ILoginParams } from "../../../interfaces/value";
@@ -11,15 +9,13 @@ import {
 } from "../../../services/localStorage";
 import { useEffect } from "react";
 import { openNotification } from "../../../utils/openNotification";
-import { AxiosError } from "axios";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../../redux/store";
-import { fetchEmployeesByPage } from "../../../redux/reducers/employeeReducer";
+import { FormLogin } from "../../../components/form/formLogin";
 export const LoginPage = () => {
   const [api, contextHolder] = notification.useNotification();
   const navigate = useNavigate();
   const [form] = Form.useForm();
-  const dispatch = useDispatch<AppDispatch>();
   const handleLogin = async () => {
     const dataLogin: ILoginParams = form.getFieldsValue();
     try {
@@ -54,12 +50,7 @@ export const LoginPage = () => {
   return (
     <>
       {contextHolder}
-      <Typography.Title
-        level={2}
-        //style={{ textAlign: "center", fontWeight: 500 }}
-      >
-        Sign In
-      </Typography.Title>
+      <Typography.Title level={2}>Sign In</Typography.Title>
       <div className="wrapper-form-login">
         <FormLogin form={form} onFinish={() => handleLogin()} />
       </div>

@@ -1,10 +1,9 @@
 import { Form, notification, Typography } from "antd";
-import { FormForgotPassword } from "../../../components/form/form";
-import { AuthLayout } from "../../../layouts/Auth/authLayout";
 import "./forgotPassword.scss";
 import { openNotification } from "../../../utils/openNotification";
 import { ForgotpasswordAPI } from "../../../services/Auth/Auth";
 import { useNavigate } from "react-router";
+import { FormForgotPassword } from "../../../components/form/formForgotPassword";
 export const ForgotPassword = () => {
   const [form] = Form.useForm();
   const [api, contextHolder] = notification.useNotification();
@@ -25,7 +24,6 @@ export const ForgotPassword = () => {
         }, 1000);
       }
     } catch (error: any) {
-      console.log("errr>>>", error);
       openNotification(api, "error", error.response.data.message, "");
     }
   };

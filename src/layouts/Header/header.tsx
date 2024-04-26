@@ -21,26 +21,7 @@ import { useNavigate } from "react-router";
 import { useState } from "react";
 import { ModalConfirm } from "../../components/modal/modal";
 
-const items: MenuProps["items"] = [
-  {
-    key: "1",
-    label: (
-      <>
-        <Typography.Title level={3}>Username: admin</Typography.Title>
-        <Typography>Staff ID: </Typography>
-      </>
-    ),
-  },
 
-  {
-    key: "2",
-    label: (
-      <a type="primary" style={{ color: "white" }}>
-        Log out
-      </a>
-    ),
-  },
-];
 export const AuthHeader = () => {
   return (
     <Flex vertical justify="center" align="center">
@@ -64,10 +45,7 @@ export const MainHeader = () => {
     }, 1000);
     navigate("/auth/login");
   };
-  const popoverStyle: React.CSSProperties = {
-    minWidth: "320px",
-    background: "#000",
-  };
+
   const navigate = useNavigate();
 
   const handleCancel = () => {

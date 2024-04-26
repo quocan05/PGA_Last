@@ -9,8 +9,9 @@ import {
   TableColumnsType,
   GetProp,
   UploadFile,
+  Flex,
 } from "antd";
-import { DeleteOutlined } from "@ant-design/icons";
+import { DeleteOutlined, DownloadOutlined } from "@ant-design/icons";
 import { CustomTableProps } from "../../interfaces/table";
 import { DataTypeColumnFile } from "../../interfaces/value";
 import { ButtonUpload } from "../../components/button/button";
@@ -80,24 +81,45 @@ const UploadDocuments: React.FC<CustomTableProps> = ({
       fixed: "right" as "right",
       width: "30%",
       render: (_: any, record: any) => (
-        <Button
-          danger
-          icon={<DeleteOutlined />}
-          size="small"
-          style={{ border: "none", background: "#FFEFEF" }}
-          onClick={() => handleDelete(record)}
-        ></Button>
+        <>
+          {record instanceof File || record instanceof FormData ? (
+            <Button
+              danger
+              icon={<DeleteOutlined />}
+              size="small"
+              style={{ border: "none", background: "#FFEFEF" }}
+              onClick={() => handleDelete(record)}
+            ></Button>
+          ) : (
+            <Flex gap={10}>
+              <Button
+                icon={<DownloadOutlined style={{ color: "#30A46C" }} />}
+                size="small"
+                style={{ border: "none", background: "#E9F9EE" }}
+                onClick={() => handleDownload(record.document)}
+              ></Button>
+
+              <Button
+                danger
+                icon={<DeleteOutlined />}
+                size="small"
+                style={{ border: "none", background: "#FFEFEF" }}
+                onClick={() => handleDelete(record)}
+              ></Button>
+            </Flex>
+          )}
+        </>
       ),
     },
   ];
 
-  const handleUpload = () => {
-    const formData = new FormData();
-    fileList.forEach((file) => {
-      formData.append("files[]", file as FileType);
-    });
-    console.log("list >>>", fileList, "id>>>> ", idEmp);
-  };
+  // const handleUpload = () => {
+  //   const formData = new FormData();
+  //   fileList.forEach((file) => {
+  //     formData.append("files[]", file as FileType);
+  //   });
+  //   console.log("list >>>", fileList, "id>>>> ", idEmp);
+  // };
 
   const handleDelete = (file: any) => {
     const index = fileList.indexOf(file);
@@ -113,6 +135,9 @@ const UploadDocuments: React.FC<CustomTableProps> = ({
     }
     console.log("list now>>>", newFileList);
     console.log("list delIDs:", delIds);
+  };
+  const handleDownload = (link: any) => {
+    window.open(link);
   };
 
   const uploadProps: UploadProps = {
