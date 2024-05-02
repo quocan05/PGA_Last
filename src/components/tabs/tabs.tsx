@@ -3,10 +3,7 @@ import "./tabs.scss";
 
 import React, { useEffect, useState } from "react";
 import { TagTabs } from "../tag/tag";
-import {
-  HeaderManageAddNew,
-  HeaderManageUpdate,
-} from "../../containers/Headers/headers";
+
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { useParams } from "react-router";
@@ -18,6 +15,8 @@ import { FormContractInformation } from "../form/formContractInfo";
 import { FormEmploymentDetails } from "../form/formEmploymentDetail";
 import { FormSalaryWages } from "../form/formSalaryWages";
 import { FormOthers } from "../form/formOthers";
+import { HeaderManageAddNew } from "../../containers/Headers/headerAddNew";
+import { HeaderManageUpdate } from "../../containers/Headers/headerUpdate";
 export const TabsEmployee: React.FC = () => {
   const [activeKey, setActiveKey] = useState("1");
   const [isError, setIsError] = useState(false);
@@ -228,7 +227,7 @@ export const TabsEmployee: React.FC = () => {
         }}
       >
         <Tabs
-          animated={false}
+          //animated={false}
           defaultActiveKey={activeKey}
           onChange={setActiveKey}
           size={"large"}

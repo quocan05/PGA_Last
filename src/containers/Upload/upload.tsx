@@ -7,7 +7,6 @@ import {
   message,
   UploadProps,
   TableColumnsType,
-  GetProp,
   UploadFile,
   Flex,
 } from "antd";
@@ -27,7 +26,6 @@ const UploadDocuments: React.FC<CustomTableProps> = ({
   idEmp,
   ...props
 }) => {
-  type FileType = Parameters<GetProp<UploadProps, "beforeUpload">>[0];
   const mode = useSelector((state: RootState) => state.mode.mode);
   const [fileList, setFileList] = useState<UploadFile[]>([]);
   const [delIds, setDelIds] = useState<number[]>([]);
@@ -183,7 +181,7 @@ const UploadDocuments: React.FC<CustomTableProps> = ({
         getListFile();
         setIsModified(false);
       } catch (err) {
-        console.log("err>>>", err);
+        //console.log("err>>>", err);
       }
     } else {
       setFileList([]);

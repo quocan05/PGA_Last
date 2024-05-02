@@ -9,7 +9,6 @@ export interface DataTypeColumnFile extends UploadFile {
   createdAt: string;
   ok: string;
 }
-//No	Contract Namse	Sign Date	Action
 
 export interface PropsMenu {
   setSelectedKey: (key: string) => void;

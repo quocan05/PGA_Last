@@ -7,7 +7,6 @@ import {
   Spin,
 } from "antd";
 import TableEmployee from "../../components/table/tableEmployee";
-import { HeaderManage } from "../Headers/headers";
 import {
   ButtonAddNewEmployee,
   ButtonDeleteEmployee,
@@ -31,7 +30,9 @@ import { useSearchParams } from "react-router-dom";
 import { setModeAdd, setModeEdit } from "../../redux/reducers/modeReducer";
 import { OpenAIFilled } from "@ant-design/icons";
 import { useDebounce } from "../../hooks/useDebounce";
-
+import { toast } from "react-toastify";
+import { HeaderManage } from "../Headers/headerManageEmp";
+import { Footer } from "../../layouts/Footer/footer";
 export const ManageEmployee = () => {
   const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
   const [canDelete, setCanDelete] = useState(false);
@@ -67,11 +68,16 @@ export const ManageEmployee = () => {
   };
 
   const handleDeleteEmployee = async () => {
-    const multiple: IMultipleIds = { record_ids: selectedRowKeys };
-    await deleteMultipleEmployee(multiple);
-    setCanDelete(false);
-    setOpen(false);
-    dispatch(fetchEmployeesByPage(currentPage));
+    try {
+      const multiple: IMultipleIds = { record_ids: selectedRowKeys };
+      await deleteMultipleEmployee(multiple);
+      setCanDelete(false);
+      setOpen(false);
+      toast.success("Success!");
+      dispatch(fetchEmployeesByPage(currentPage));
+    } catch (error: any) {
+      toast.error(error.response.data.message);
+    }
   };
   const handleAddNew = async () => {
     dispatch(setModeAdd());
@@ -201,6 +207,7 @@ export const ManageEmployee = () => {
       >
         <p>Are you sure want to delete?</p>
       </ModalConfirm>
+      <Footer />
     </>
   );
 };

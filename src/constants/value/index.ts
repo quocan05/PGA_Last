@@ -66,9 +66,9 @@ export const columnsInfoEmployee: TableColumnsType<IEmployeeData> = [
   },
   {
     title: "Date Start",
-    dataIndex: "created_at",
+    dataIndex: "contract_start_date",
     width: 90,
-    key: "created_at",
+    key: "contract_start_date",
   },
   {
     title: "Department",

@@ -57,20 +57,19 @@ export const HomeLayout: React.FC<HomeLayoutProps> = ({ children }) => {
     height: "100vh",
   };
   return (
-      <Layout style={layoutStyle}>
-        <div className="wrapper-shadow">
-          <MainHeader />
-        </div>
-        <Layout>
-          <Sider width="329px" style={siderStyle}>
-            <Typography style={textHeadingStyle}>General</Typography>
-            <ButtonMenuSider />
-          </Sider>
-          <Content style={contentStyle}>
-            <div style={{ width: "80%" }}>{children}</div>
-          </Content>
-        </Layout>
-        <Footer />
+    <Layout style={layoutStyle}>
+      <div className="wrapper-shadow">
+        <MainHeader />
+      </div>
+      <Layout>
+        <Sider width="329px" style={siderStyle}>
+          <Typography style={textHeadingStyle}>General</Typography>
+          <ButtonMenuSider />
+        </Sider>
+        <Content style={contentStyle}>
+          <div style={{ width: "85%" }}>{children}</div>
+        </Content>
       </Layout>
+    </Layout>
   );
 };

@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { CustomFormProps } from "../../interfaces/form";
 import { RootState } from "../../redux/store";
 import { convertDataSelect } from "../../utils/convertDataSelect";
-import { Card, DatePickerProps, Flex, Form } from "antd";
+import { Button, Card, DatePickerProps, Flex, Form } from "antd";
 import { validateMessages } from "../../utils/validate";
 import { InputText } from "../input/input";
 import { SelectGender, SelectMarriage } from "../select/select";
@@ -21,6 +21,12 @@ export const FormEmployeeInformation: React.FC<CustomFormProps> = ({
 
   const onChange: DatePickerProps["onChange"] = (date, dateString) => {
     console.log(date, dateString);
+  };
+
+  const [form] = Form.useForm();
+
+  const checkForm = () => {
+    console.log("form value:>>>", form.getFieldsValue());
   };
   return (
     <>
@@ -72,6 +78,9 @@ export const FormEmployeeInformation: React.FC<CustomFormProps> = ({
                     ></InputText>
                   </Form.Item>
                 )}
+                {/* <Form.Item>
+                  <Button onClick={() => checkForm()}>Check</Button>
+                </Form.Item> */}
                 <Form.Item
                   name={"name"}
                   label={<p>Name</p>}

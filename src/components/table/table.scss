@@ -17,18 +17,5 @@ td{
 
 
 
-/* File .scss hoặc .css của bạn */
-.wrapper-table .ant-table::-webkit-scrollbar {
-    width: 8px; /* Độ rộng của thanh cuộn */
-  }
-  
-  .wrapper-table .ant-table::-webkit-scrollbar-track {
-    background: orange; /* Màu của khu vực cuộn */
-  }
-  
-  .wrapper-table .ant-table::-webkit-scrollbar-thumb {
-    background-color: blue; /* Màu của thanh cuộn */
-    border-radius: 20px; /* Độ cong của thanh cuộn */
-    border: 3px solid orange; /* Tạo đệm xung quanh thanh cuộn */
-  }
+
   

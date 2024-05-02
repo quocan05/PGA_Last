@@ -9,9 +9,8 @@ import {
 } from "../../../services/localStorage";
 import { useEffect } from "react";
 import { openNotification } from "../../../utils/openNotification";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "../../../redux/store";
 import { FormLogin } from "../../../components/form/formLogin";
+import { toast } from "react-toastify";
 export const LoginPage = () => {
   const [api, contextHolder] = notification.useNotification();
   const navigate = useNavigate();
@@ -22,12 +21,13 @@ export const LoginPage = () => {
       const res = await LoginAPI(dataLogin);
       if (res && res.data.token) {
         await setLocalStorage(res.data.token);
-        openNotification(
-          api,
-          "success",
-          "Login Success, Wait for direct to home",
-          ""
-        );
+        toast.success("ok");
+        // openNotification(
+        //   api,
+        //   "success",
+        //   "Login Success, Wait for direct to home",
+        //   ""
+        // );
         setTimeout(() => {
           navigate("/employee");
           window.location.reload();
@@ -37,7 +37,8 @@ export const LoginPage = () => {
         console.log("res", res);
       }
     } catch (err: any) {
-      openNotification(api, "error", err.response.data.message, "");
+      //openNotification(api, "error", err.response.data.message, "");
+      toast.error(err.response.data.message);
     }
   };
   useEffect(() => {

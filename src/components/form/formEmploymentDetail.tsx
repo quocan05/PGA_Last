@@ -65,7 +65,6 @@ export const FormEmploymentDetails: React.FC<CustomFormProps> = ({
             <Form.Item valuePropName="checked" name={"entitle_ot"}>
               <CheckboxEmployment
                 name={"entitle_ot"}
-                //onChange={() => setEntitleOTChecked(!entitleOTChecked)}
               >
                 <p>Entitled OT</p>
               </CheckboxEmployment>

@@ -16,7 +16,7 @@ import {
   buttonStyle,
   buttonTabStyle,
 } from "../../constants/scss";
-import { UploadOutlined } from "@ant-design/icons";
+import { DeleteOutlined, UploadOutlined } from "@ant-design/icons";
 import "./button.scss";
 import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
@@ -71,7 +71,7 @@ export const ButtonDeleteEmployee: React.FC<ButtonProps> = (props) => {
           },
         }}
       >
-        <Button {...props} icon={<Trash />} style={buttonStyle}>
+        <Button {...props} icon={<DeleteOutlined />} style={buttonStyle}>
           Delete
         </Button>
       </ConfigProvider>

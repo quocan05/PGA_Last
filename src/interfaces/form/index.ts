@@ -1,5 +1,4 @@
 import { FormProps, UploadFile } from "antd";
-import { IEmployeeData } from "../value";
 
 export interface CustomFormProps extends FormProps {
   setError?: (state: boolean) => void;

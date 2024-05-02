@@ -1,6 +1,5 @@
 import moment from "moment";
 import { IEmployeeData } from "../interfaces/value";
-import { formatDateCreatedAt, formatDateToAddNew } from "./convertDate";
 import { convertDataSelect } from "./convertDataSelect";
 import dayjs from "dayjs";
 
@@ -12,6 +11,7 @@ export const convertEmployeeData = (employeeData: IEmployeeData) => {
     gender: employeeData.gender === 0 ? "Male" : "Female",
     marriage_code: employeeData.marriage_code,
     mother_name: employeeData.mother_name,
+    contract_start_date: employeeData.contract_start_date,
     nc_id: employeeData.nc_id,
     department_name: employeeData.department_name,
     position_name: employeeData.position_name,

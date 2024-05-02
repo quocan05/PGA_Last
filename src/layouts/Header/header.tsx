@@ -21,7 +21,6 @@ import { useNavigate } from "react-router";
 import { useState } from "react";
 import { ModalConfirm } from "../../components/modal/modal";
 
-
 export const AuthHeader = () => {
   return (
     <Flex vertical justify="center" align="center">
@@ -132,7 +131,7 @@ export const MainHeader = () => {
                 <br />
                 <div style={{ margin: "25px 0px 10px 0px" }}>
                   <a onClick={() => navigate("settings/change-password")}>
-                    Reset password
+                    Change password
                   </a>
                 </div>
               </div>

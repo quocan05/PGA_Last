@@ -30,3 +30,9 @@ p{
     padding: 10px !important;
 }
 
+@media screen and (max-width: 768px) {
+    /* Điều chỉnh các style tại đây cho kích thước màn hình nhỏ hơn hoặc bằng 768px */
+    .form-item {
+      width: 100%; /* Thiết lập chiều rộng cho mọi thành phần form */
+    }
+  }

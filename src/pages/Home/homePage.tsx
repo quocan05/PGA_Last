@@ -6,6 +6,8 @@ import { HeaderManage } from "../../containers/Headers/headers";
 import { Outlet, useNavigate } from "react-router";
 import { useEffect } from "react";
 import { getLocalStorage } from "../../services/localStorage";
+import { ToastContainer } from "react-toastify";
+import { ToastComponent } from "../../components/Toast/toast";
 
 export const HomePage = () => {
   const navigate = useNavigate();
@@ -17,6 +19,7 @@ export const HomePage = () => {
   return (
     <HomeLayout>
       <Outlet />
+      <ToastComponent />
     </HomeLayout>
   );
 };

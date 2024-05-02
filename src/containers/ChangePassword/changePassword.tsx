@@ -1,15 +1,14 @@
 import { Card, Form, notification } from "antd";
-import { HeaderSettings } from "../Headers/headers";
 import { FormChangePassword } from "../../components/form/formChangePassword";
 import { ChangePassword } from "../../services/Auth/Auth";
-import { openNotification } from "../../utils/openNotification";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { getLocalStorage } from "../../services/localStorage";
 import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
+import { HeaderSettings } from "../Headers/headerSetting";
 
 export const ChangePasswordForm = () => {
   const [form] = Form.useForm();
-  const [api, contextHolder] = notification.useNotification();
   const navigate = useNavigate();
   const handleChangePassword = async () => {
     console.log("form value: ", form.getFieldsValue());
@@ -17,11 +16,10 @@ export const ChangePasswordForm = () => {
       const data = form.getFieldsValue();
       const res = await ChangePassword(data);
       if (res) {
-        openNotification(api, "success", res.message, "");
+        toast.success("Change password successfully!");
       }
     } catch (error: any) {
-      console.log("err", error);
-      openNotification(api, "error", error.response.data.message, "");
+      toast.error(error.response.data.message);
     }
   };
   useEffect(() => {
@@ -31,7 +29,6 @@ export const ChangePasswordForm = () => {
   }, []);
   return (
     <>
-      {contextHolder}
       <HeaderSettings />
       <br />
       <Card title={<p>Change password</p>}>
